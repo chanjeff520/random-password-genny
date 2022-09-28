@@ -40,6 +40,9 @@ function generatePassword(){
   }else if(characterCount > 1024){
     alert("You have more than 128 characters!!")
     return;
+  }else if(typeof(characterCount) != "number"){
+    alert("You can not have letter/decimals in your character count!!!!");
+    return;
   }
 
   //ask the user if they want special, number, lowercase, and/or uppercase characters
