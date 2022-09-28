@@ -45,5 +45,11 @@ function generatePassword(){
   console.log("Special Character = " + isSpecialChar + "\n",  "Number Character = " + isNumChar  +"\n",
     "Lowercase = " + isLowerChar+ "\n", "Uppercase = " + isUpperChar + "\n");
 
+  //checks if the characters boolean are all false
+  if((isSpecialChar || isNumChar || isLowerChar || isUpperChar) === (false)){
+    alert("You can not selected 'cancel' to all character type!! Please retry.");
+  }
+
+
   return password;
 };
