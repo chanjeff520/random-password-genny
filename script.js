@@ -27,22 +27,25 @@ function generatePassword(){
   var isNumChar;      //ascii of 48-57
   var isLowerChar;    //ascii of 97-122
   var isUpperChar;    //ascii of 65-90
-  var possibleCharType = "";
-  var password; //This is what we'll be returning
+  var possibleCharType = "";  //string to storage possible char types
+  var password = "";  //This is what we'll be returning
 
   //prompt the user for the length of the password
   characterCount=prompt("How many characters for your password(must be 8 to 128 characters)?");
 
-  //checks if the password is the password have right amount of characters
-  if(characterCount < 8 || characterCount > 128){
+  //checks if the password is the password have right amount of characters/letters
+  if(characterCount=== null) return ""; //if it is null
+  if(characterCount=== "") return "";   // if it is empty
+  console.log("Your characterCount value is "+characterCount); //checks in the console how many characters are in the password
+  if(characterCount < 8){   
     alert("You need at least 8 characters!!");
-    return;
-  }else if(characterCount > 1024){
+    return"";
+  }else if(characterCount > 128){
     alert("You have more than 128 characters!!")
-    return;
-  }else if(typeof(characterCount) != "number"){
-    alert("You can not have letter/decimals in your character count!!!!");
-    return;
+    return"";
+  }else if(/[a-zA-Z]/.test(characterCount) == true){ //if there is letters inside of characterCount
+    alert("You can not have letter in your character count!!!!");
+    return"";
   }
 
   //ask the user if they want special, number, lowercase, and/or uppercase characters
@@ -58,13 +61,27 @@ function generatePassword(){
   //checks if the characters boolean are all false
   if((isSpecialChar || isNumChar || isLowerChar || isUpperChar) === (false)){
     alert("You can not selected 'cancel' to all character type!! Please retry.");
+    return "";
   }
 
+  //adds all character type together depending types of char wanted
   if(isSpecialChar === true) possibleCharType += strSpecial; 
   if(isNumChar === true) possibleCharType += strNumber; 
   if(isLowerChar === true) possibleCharType += strLowercase; 
   if(isUpperChar === true) possibleCharType += strUppercase; 
-  console.log(possibleCharType);
+  console.log("Possible characters: "+possibleCharType);
+
+  //add random characters from within a possibleCharType to password
+  var count = 0;
+  for(var i = 0; i<characterCount; i++){
+    var ranNumber = Math.floor(Math.random() * possibleCharType.length);
+    password += possibleCharType[ranNumber];
+    count++;
+  }
+
+  //log password in the console and on the screen
+  alert("Your password: " + password);
+  console.log("Your password is " + password);
 
   return password;
 };
