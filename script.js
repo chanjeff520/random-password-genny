@@ -13,12 +13,15 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var password;
 
 function generatePassword(){
   //Variable need for this
   var characterCount;
-  var isTrue;
+  var isSpecialChar;
+  var isNumChar;
+  var isLowerChar;
+  var isUpperChar;
+  var password; //This is what we'll be returning
 
   //prompt the user for the length of the password
   characterCount=prompt("How many characters for your password(must be 8 to 1024 characters)?");
@@ -32,5 +35,10 @@ function generatePassword(){
     return;
   }
 
+  isSpecialChar = confirm("Do you want Special Characters?");
+  isNumChar = confirm("Do you want number characters");
+  isLowerChar = confirm("Do you want lowercase characters");
+  isUpperChar = confirm("Do you want uppercase characters");
+  
 
 };
