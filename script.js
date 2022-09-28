@@ -24,21 +24,26 @@ function generatePassword(){
   var password; //This is what we'll be returning
 
   //prompt the user for the length of the password
-  characterCount=prompt("How many characters for your password(must be 8 to 1024 characters)?");
+  characterCount=prompt("How many characters for your password(must be 8 to 128 characters)?");
 
   //checks if the password is the password have right amount of characters
-  if(characterCount < 8 || characterCount > 1024){
+  if(characterCount < 8 || characterCount > 128){
     alert("You need at least 8 characters!!");
     return;
   }else if(characterCount > 1024){
-    alert("You have more than 1024 characters!!")
+    alert("You have more than 128 characters!!")
     return;
   }
 
+  //ask the user if they want special, number, lowercase, and/or uppercase characters
   isSpecialChar = confirm("Do you want Special Characters?");
   isNumChar = confirm("Do you want number characters");
   isLowerChar = confirm("Do you want lowercase characters");
   isUpperChar = confirm("Do you want uppercase characters");
-  
 
+  //Gives a display in the console for the choices of true and false
+  console.log("Special Character = " + isSpecialChar + "\n",  "Number Character = " + isNumChar  +"\n",
+    "Lowercase = " + isLowerChar+ "\n", "Uppercase = " + isUpperChar + "\n");
+
+  return password;
 };
