@@ -13,14 +13,21 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//variable of all character types
+var strSpecial = "~!@#$%^&*()_+-={}|':;\"\\\<\>?/.,";
+var strNumber = "1234567890";
+var strLowercase = "abcdefghijklmnopqrstuvwxyz";
+var strUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 
 function generatePassword(){
   //Variable need for this
   var characterCount;
-  var isSpecialChar;
-  var isNumChar;
-  var isLowerChar;
-  var isUpperChar;
+  var isSpecialChar;  //ascii of 33-47, 58-64, 91-96, 123-126 thought about ascii, but not right way
+  var isNumChar;      //ascii of 48-57
+  var isLowerChar;    //ascii of 97-122
+  var isUpperChar;    //ascii of 65-90
+  var possibleCharType = "";
   var password; //This is what we'll be returning
 
   //prompt the user for the length of the password
@@ -50,6 +57,11 @@ function generatePassword(){
     alert("You can not selected 'cancel' to all character type!! Please retry.");
   }
 
+  if(isSpecialChar === true) possibleCharType += strSpecial; 
+  if(isNumChar === true) possibleCharType += strNumber; 
+  if(isLowerChar === true) possibleCharType += strLowercase; 
+  if(isUpperChar === true) possibleCharType += strUppercase; 
+  console.log(possibleCharType);
 
   return password;
 };
