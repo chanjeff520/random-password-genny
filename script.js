@@ -14,7 +14,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //variable of all character types
-var strSpecial = "~!@#$%^&*()_+-={}|':;\"\\\<\>?/.,";
+var strSpecial = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var strNumber = "1234567890";
 var strLowercase = "abcdefghijklmnopqrstuvwxyz";
 var strUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
